@@ -1,0 +1,168 @@
+flow VMIN_PM_SHM{
+  setup {
+
+ suite DFT_13step_001_Vmin calls src.char_tools_tml.Vmin_Search{
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F1);//DFT timing
+        measurement.pattern=setupRef(setups.vectors.DFT._13step_001_32957499);//DFT pattern
+        Vcoef = "Vcoef";
+        Vcoef_UL = 1.2;
+        Vcoef_LL = 0.6;
+        Vpoints = 10;
+        Vclamp_EN = 1;
+        Period = "per_9_616_eqn1";
+        signals = "MIPIGRP";
+        filePath ="/tmp/CHAR_LOG/Char_Log_DFT_LNA_Vmin.txt";
+        }
+
+    suite DFT_usid_prg_test_000_Vmin calls src.char_tools_tml.Vmin_Search{
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F4);//DFT timing
+        measurement.pattern=setupRef(setups.vectors.DFT.tc_usid_prg_test_000_113648088);//DFT pattern
+        Vcoef = "Vcoef";
+        Vcoef_UL = 1.2;
+        Vcoef_LL = 0.6;
+        Vpoints = 10;
+        Vclamp_EN = 1;
+        Period = "per_9_616_eqn1";
+        filePath ="/tmp/CHAR_LOG/Char_Log_DFT_LNA_Vmin.txt";
+        }
+
+      suite DFT_usid_prg_test_001_Vmin calls src.char_tools_tml.Vmin_Search{
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F5);//DFT timing
+        measurement.pattern=setupRef(setups.vectors.DFT.tc_usid_prg_test_001_224119995);//DFT pattern
+        Vcoef = "Vcoef";
+        Vcoef_UL = 1.2;
+        Vcoef_LL = 0.6;
+        Vpoints = 10;
+        Vclamp_EN = 1;
+        Period = "per_9_616_eqn1";
+        filePath = "/tmp/CHAR_LOG/Char_Log_DFT_LNA_Vmin.txt";
+        }
+
+
+
+    suite DFT_13step_001_PM calls src.char_tools_tml.PM {
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F1);
+        measurement.pattern=setupRef(setups.vectors.DFT._13step_001_32957499);
+        Tper = "per_9_616_eqn1";
+        Roff = "roff";//DFT timing
+        Roff_UL = 10;
+        Roff_LL = -10;
+        Rpoints =20;
+        mPins =  "MIPIGRP";
+        filePath = "/tmp/CHAR_LOG/Char_Log_DFT_LNA_PM.txt";
+    }
+
+    suite DFT_usid_prg_test_000_PM calls src.char_tools_tml.PM {
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F4);
+        measurement.pattern=setupRef(setups.vectors.DFT.tc_usid_prg_test_000_113648088);
+        Tper = "per_9_616_eqn1";
+        Roff = "roff";//DFT timing
+        Roff_UL = 10;
+        Roff_LL = -10;
+        Rpoints =20;
+        mPins =  "MIPIGRP";
+        filePath = "/tmp/CHAR_LOG/Char_Log_DFT_LNA_PM.txt";
+    }
+
+        suite DFT_usid_prg_test_001_PM calls src.char_tools_tml.PM {
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F5);
+        measurement.pattern=setupRef(setups.vectors.DFT.tc_usid_prg_test_001_224119995);
+        Tper = "per_9_616_eqn1";
+        Roff = "roff";//DFT timing
+        Roff_UL = 10;
+        Roff_LL = -10;
+        Rpoints =20;
+        mPins =  "MIPIGRP";
+       filePath = "/tmp/CHAR_LOG/Char_Log_DFT_LNA_PM.txt";
+    }
+
+
+
+        suite DFT_13step_001_SHM calls src.char_tools_tml.SHM_R {
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F1);
+        measurement.pattern=setupRef(setups.vectors.DFT._13step_001_32957499);
+        Tper = "per_9_616_eqn1";
+        Vcoef = "Vcoef";//DFT level
+        Tcoef_UL = 2;
+        Tcoef_LL = 0.2;
+        Vcoef_UL = 1.2;
+        Vcoef_LL = 0.6;
+        Tpoints = 20;
+        Vpoints = 20;
+        Vclamp_EN = 1;
+        mPin = "MIPIGRP";
+        filePath = "/tmp/CHAR_LOG/Char_Log_DFT_LNA_SHM.txt";
+    }
+
+    suite DFT_usid_prg_test_000_SHM calls src.char_tools_tml.SHM_R{
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F4);
+        measurement.pattern=setupRef(setups.vectors.DFT.tc_usid_prg_test_000_113648088);
+        Tper = "per_9_616_eqn1";
+        Vcoef = "Vcoef";//DFT level
+        Tcoef_UL = 2;
+        Tcoef_LL = 0.2;
+        Vcoef_UL = 1.2;
+        Vcoef_LL = 0.6;
+        Tpoints = 20;
+        Vpoints = 20;
+        Vclamp_EN = 1;
+        mPin = "MIPIGRP";
+       filePath = "/tmp/CHAR_LOG/Char_Log_DFT_LNA_SHM.txt";
+    }
+
+        suite DFT_usid_prg_test_001_SHM calls src.char_tools_tml.SHM_R {
+        measurement.specification=setupRef(setups.specs.DFT.DFT_spec_LNA_F5);
+        measurement.pattern=setupRef(setups.vectors.DFT.tc_usid_prg_test_001_224119995);
+        Tper = "per_9_616_eqn1";
+        Vcoef = "Vcoef";//DFT level
+        Tcoef_UL = 2;
+        Tcoef_LL = 0.2;
+        Vcoef_UL = 1.2;
+        Vcoef_LL = 0.6;
+        Tpoints = 20;
+        Vpoints = 20;
+        Vclamp_EN = 1;
+        mPin = "MIPIGRP";
+        filePath = "/tmp/CHAR_LOG/Char_Log_DFT_LNA_SHM.txt";
+
+    }
+
+
+
+    suite USID0_1_SETTING calls src.rfcbb_tml.Functional_Test{
+        importSpec = "setups.specs.OS.OS_FUNC_VSS";
+        PatName = "USID0_1";//OS_FUNC_VSS
+        JudgeFlag =false;
+    }
+
+
+        suite USID0_0_SETTING calls src.rfcbb_tml.Functional_Test{
+        importSpec = "setups.specs.OS.OS_FUNC_VSS";
+        PatName = "USID0_0";//OS_FUNC_VSS
+        JudgeFlag =false;
+    }
+  }
+
+
+  execute {
+
+    DFT_13step_001_Vmin.execute();
+    DFT_13step_001_PM.execute();
+    DFT_13step_001_SHM.execute();
+
+    USID0_1_SETTING.execute;
+
+    DFT_usid_prg_test_000_Vmin.execute();
+    DFT_usid_prg_test_000_PM.execute();
+    DFT_usid_prg_test_000_SHM.execute();
+
+
+    USID0_0_SETTING.execute;
+
+    DFT_usid_prg_test_001_Vmin.execute();
+    DFT_usid_prg_test_001_PM.execute();
+    DFT_usid_prg_test_001_SHM.execute();
+    USID0_0_SETTING.execute;
+
+  }
+}

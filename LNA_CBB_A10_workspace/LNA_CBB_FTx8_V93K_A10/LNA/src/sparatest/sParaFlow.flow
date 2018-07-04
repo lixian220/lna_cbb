@@ -1,0 +1,45 @@
+flow sParaFlow {
+
+    setup {
+
+
+
+//    suite switch_direct calls RFCBB_tml.Functional_Test_SMC{
+//        ImportSpec = "specs.normal";
+////        PatName = "DIRECT_SWITCH";//
+//        JudgeFlag =false;
+//    }
+
+
+        suite sParameterTest calls SPara
+        {
+            measurement.operatingSequenceName 	= setupRef(sPara);
+            measurement.specificationName 		= setupRef(sPara);
+            useDSAPI = true;
+
+            startFrequency =1500000000L; //2.39GHz
+            stopFrequency = 3000000000L; //2.45GHz
+            frequencyStep = 10000000L; //5MHz Step
+            sPort1 = "RF_IN1";
+            sPort2 = "RF_OUT";
+        }
+
+//        suite sParameterLoopTest calls loopMeasSParameters
+//        {
+//            measurement.operatingSequenceName 	= setupRef(sPara);
+//            measurement.specificationName 		= setupRef(sPara);
+//            startFrequency = 3500000000L; //3.5GHz
+//            stopFrequency = 3700000000L; //3.7GHz
+//            frequencyStep = 5000000L; //5MHz Step
+//            Port1 = "RF_IN1";
+//            Port2 = "RF_OUT";
+//        }
+    }
+
+
+    execute {
+//        switch_direct.execute();
+        sParameterTest.execute();
+//        sParameterLoopTest.execute();
+    }
+}

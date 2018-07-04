@@ -1,0 +1,29 @@
+//can not run preBind only
+flow PreBind_NewLBCal {
+    setup {
+        suite import_limit_table calls       com.advantest.itee.testtable.testmethod.TestTableReader {
+           testTablePath = "testtable/LNA_FT.conf.ods";
+            limitCategory = "QA";
+            logLevelCategory = "QA";
+            forceImport = true;
+            printToConsole = false;
+           createParameterGroups = true;
+
+        }
+
+        suite initCalData calls src.rfcbb_tml.com.InitCalData{
+              CalDataFilePath = "calibration/LNA_CAL.ods";
+        }
+        suite initRegData calls src.reg_tools.InitRegData{
+            RegDataFilePath = "LNA/testtable/files/LNA_RF_FT_Test.ods";
+        }
+
+    }
+
+    execute {
+
+        import_limit_table.execute;
+        initCalData.execute;
+        initRegData.execute;
+    }
+}

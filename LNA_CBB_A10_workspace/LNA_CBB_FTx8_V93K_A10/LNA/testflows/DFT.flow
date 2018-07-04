@@ -1,0 +1,66 @@
+flow DFT {
+    setup {
+        suite DFT_13step_001 calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.DFT.DFT_spec_LNA_F1 ";
+            PatName = "_13step_001_32957499";
+            signals = "MIPIGRP";
+            JudgeFlag = true;
+        }
+
+        suite DFT_soft_rst_003 calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.DFT.DFT_spec_LNA_F2";
+            PatName = "tc_soft_rst_003_232298519";
+            signals = "MIPIGRP";
+        }
+        suite DFT_trigger_test calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.DFT.DFT_spec_LNA_F2";
+            PatName = "tc_trigger_test_41811438";
+            signals = "MIPIGRP";
+        }
+        suite DFT_usid_prg_test_000 calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.DFT.DFT_spec_LNA_F4";
+            PatName = "tc_usid_prg_test_000_113648088";
+            signals = "MIPIGRP";
+        }
+
+
+        suite DFT_usid_prg_test_001 calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.DFT.DFT_spec_LNA_F5";
+            PatName = "tc_usid_prg_test_001_224119995";
+            signals = "MIPIGRP";
+            JudgeFlag = true;
+        }
+
+
+        suite USID0_1_SETTING calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.OS.OS_FUNC_VSS";
+            PatName = "USID0_1"; //OS_FUNC_VSS
+            JudgeFlag = false;
+        }
+
+
+        suite USID0_0_SETTING calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.OS.OS_FUNC_VSS";
+            PatName = "USID0_0"; //OS_FUNC_VSS
+            JudgeFlag = false;
+        }
+
+    }
+
+    execute {
+        DFT_13step_001.execute;
+
+        USID0_1_SETTING.execute;
+        DFT_usid_prg_test_000.execute;
+
+        USID0_0_SETTING.execute;
+        DFT_usid_prg_test_001.execute;
+        USID0_0_SETTING.execute;
+
+
+
+
+
+
+    }
+}

@@ -1,0 +1,118 @@
+flow DeltaFlow {
+    in MaxCountInt = 1;
+
+    setup {
+        suite LB1_IN1_LB_OUT_B5 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite LB1_IN2_LB_OUT_B28 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite LB1_IN3_LB_OUT_B8 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite LB1_IN4_LB_OUT_B13 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite LB1_IN5_LB_OUT_B20 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite MB1_IN1_MHB1_OUT_B40 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite MB1_IN2_MHB1_OUT_B3 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite MB1_IN3_MHB1_OUT_B1 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite MB1_IN2_MHB3_OUT_B3 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+        suite MB2_IN1_MHB2_OUT_B2 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite MB2_IN2_MHB2_OUT_B11 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite MB2_IN3_MHB2_OUT_B39 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite MB2_IN2_MHB3_OUT_B11 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+        suite HB1_IN1_MHB1_OUT_B41 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite HB1_IN2_MHB1_OUT_B40 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite HB1_IN2_MHB3_OUT_B40 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+        suite HB2_IN1_MHB2_OUT_B38 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite HB2_IN2_MHB2_OUT_B30 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+        }
+
+        suite HB2_IN2_MHB3_OUT_B30 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+
+        }
+        suite MUX_IN1_MHB3_OUT_B23 calls src.cal_delta.DeltaLossJudge {
+            maxCount = MaxCountInt;
+            flowCtrl = true;
+        }
+        suite CalJudgeGui calls src.cal_delta.CalLossJudgeGui {
+            maxCount = MaxCountInt;
+        }
+
+
+
+
+
+    }
+
+    execute {
+        LB1_IN1_LB_OUT_B5.execute;
+        LB1_IN2_LB_OUT_B28.execute;
+        LB1_IN3_LB_OUT_B8.execute;
+        LB1_IN4_LB_OUT_B13.execute;
+        LB1_IN5_LB_OUT_B20.execute;
+        MB1_IN1_MHB1_OUT_B40.execute;
+        MB1_IN2_MHB1_OUT_B3.execute;
+        MB1_IN3_MHB1_OUT_B1.execute;
+        MB1_IN2_MHB3_OUT_B3.execute; //MUX
+        MB2_IN1_MHB2_OUT_B2.execute;
+        MB2_IN2_MHB2_OUT_B11.execute;
+        MB2_IN3_MHB2_OUT_B39.execute;
+        MB2_IN2_MHB3_OUT_B11.execute;
+        HB1_IN1_MHB1_OUT_B41.execute;
+        HB1_IN2_MHB1_OUT_B40.execute;
+        HB1_IN2_MHB3_OUT_B40.execute;
+        HB2_IN1_MHB2_OUT_B38.execute;
+        HB2_IN2_MHB2_OUT_B30.execute;
+        HB2_IN2_MHB3_OUT_B30.execute;
+        MUX_IN1_MHB3_OUT_B23.execute;
+        CalJudgeGui.results = MUX_IN1_MHB3_OUT_B23.mResult;
+        CalJudgeGui.execute;
+
+
+    }
+}

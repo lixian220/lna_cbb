@@ -1,0 +1,264 @@
+flow NewLBCAL {
+    in calModeFlag = true;
+    in MaxCountInt = 3;
+
+    setup {
+        suite LB1_IN1_LB_OUT_B5_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite LB1_IN1_LB_OUT_B5_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite LB1_IN2_LB_OUT_B28_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite LB1_IN2_LB_OUT_B28_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite LB1_IN3_LB_OUT_B8_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite LB1_IN3_LB_OUT_B8_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite LB1_IN4_LB_OUT_B13_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite LB1_IN4_LB_OUT_B13_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite LB1_IN5_LB_OUT_B20_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite LB1_IN5_LB_OUT_B20_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite MB1_IN1_MHB1_OUT_B40_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite MB1_IN1_MHB1_OUT_B40_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite MB1_IN2_MHB1_OUT_B3_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite MB1_IN2_MHB1_OUT_B3_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite MB1_IN3_MHB1_OUT_B1_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite MB1_IN3_MHB1_OUT_B1_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite MB1_IN2_MHB3_OUT_B3_HG1_OPA calls src.rf2rf_tml.Gain_CAL {
+            calMode = calModeFlag;
+        }
+        suite MB2_IN1_MHB2_OUT_B2_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite MB2_IN1_MHB2_OUT_B2_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite MB2_IN2_MHB2_OUT_B11_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite MB2_IN2_MHB2_OUT_B11_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite MB2_IN3_MHB2_OUT_B39_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite MB2_IN3_MHB2_OUT_B39_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite MB2_IN2_MHB3_OUT_B11_HG1_OPA calls src.rf2rf_tml.Gain_CAL {
+            calMode = calModeFlag;
+        }
+        suite HB1_IN1_MHB1_OUT_B41_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite HB1_IN1_MHB1_OUT_B41_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite HB1_IN2_MHB1_OUT_B40_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite HB1_IN2_MHB1_OUT_B40_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite HB1_IN2_MHB3_OUT_B40_HG1_OPA calls src.rf2rf_tml.Gain_CAL {
+            calMode = calModeFlag;
+        }
+        suite HB2_IN1_MHB2_OUT_B38_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite HB2_IN1_MHB2_OUT_B38_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite HB2_IN2_MHB2_OUT_B30_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+        }
+        suite HB2_IN2_MHB2_OUT_B30_LG_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+            calMode = calModeFlag;
+
+        }
+
+        suite HB2_IN2_MHB3_OUT_B30_HG1_OPA calls src.rf2rf_tml.Gain_CAL {
+            calMode = calModeFlag;
+
+        }
+        suite MUX_IN1_MHB3_OUT_B23_HG1_OPA calls src.rf2rf_tml.Gain_CAL {
+            calMode = calModeFlag;
+        }
+
+
+
+        suite DumpLog_start calls src.rf2rf_tml.utilities.DumpLog {
+            importSpec = "setups.specs.RF.normal";
+            initFlag = true;
+        }
+        suite DumpLog_end calls src.rf2rf_tml.utilities.DumpLog {
+            calFlag = "INIT"; //if "INIT" it will update Cal.ods, if "PROD", it will update "Cal_prod.ods" and "Cal_delta.ods"
+            calDataFilePath = "calibration/LNA_CAL.ods";
+            calDataFilePath_prod = "calibration/LNA_CAL_prod.ods";
+            importSpec = "setups.specs.RF.normal";
+            maxCount = MaxCountInt;
+        }
+        //        flow DeltaOds calls testflow.DeltaFlow{}
+
+    }
+
+    execute {
+        DumpLog_start.execute;
+
+        LB1_IN1_LB_OUT_B5_HG1_OPA.execute;
+        LB1_IN1_LB_OUT_B5_LG_OPA.in_Y = LB1_IN1_LB_OUT_B5_HG1_OPA.out_Y;
+        LB1_IN1_LB_OUT_B5_LG_OPA.in_InLoss = LB1_IN1_LB_OUT_B5_HG1_OPA.out_InLoss;
+        LB1_IN1_LB_OUT_B5_LG_OPA.execute;
+
+        LB1_IN2_LB_OUT_B28_HG1_OPA.execute;
+        LB1_IN2_LB_OUT_B28_LG_OPA.in_Y = LB1_IN2_LB_OUT_B28_HG1_OPA.out_Y;
+        LB1_IN2_LB_OUT_B28_LG_OPA.in_InLoss = LB1_IN2_LB_OUT_B28_HG1_OPA.out_InLoss;
+        LB1_IN2_LB_OUT_B28_LG_OPA.execute;
+        //
+        //
+        LB1_IN3_LB_OUT_B8_HG1_OPA.execute;
+        LB1_IN3_LB_OUT_B8_LG_OPA.in_Y = LB1_IN3_LB_OUT_B8_HG1_OPA.out_Y;
+        LB1_IN3_LB_OUT_B8_LG_OPA.in_InLoss = LB1_IN3_LB_OUT_B8_HG1_OPA.out_InLoss;
+        LB1_IN3_LB_OUT_B8_LG_OPA.execute;
+
+
+        LB1_IN4_LB_OUT_B13_HG1_OPA.execute;
+        LB1_IN4_LB_OUT_B13_LG_OPA.in_Y = LB1_IN4_LB_OUT_B13_HG1_OPA.out_Y;
+        LB1_IN4_LB_OUT_B13_LG_OPA.in_InLoss = LB1_IN4_LB_OUT_B13_HG1_OPA.out_InLoss;
+        LB1_IN4_LB_OUT_B13_LG_OPA.execute;
+
+        LB1_IN5_LB_OUT_B20_HG1_OPA.execute;
+        LB1_IN5_LB_OUT_B20_LG_OPA.in_Y = LB1_IN5_LB_OUT_B20_HG1_OPA.out_Y;
+        LB1_IN5_LB_OUT_B20_LG_OPA.in_InLoss = LB1_IN5_LB_OUT_B20_HG1_OPA.out_InLoss;
+        LB1_IN5_LB_OUT_B20_LG_OPA.execute;
+
+        MB1_IN1_MHB1_OUT_B40_HG1_OPA.execute;
+        MB1_IN1_MHB1_OUT_B40_LG_OPA.in_Y = MB1_IN1_MHB1_OUT_B40_HG1_OPA.out_Y;
+        MB1_IN1_MHB1_OUT_B40_LG_OPA.in_InLoss = MB1_IN1_MHB1_OUT_B40_HG1_OPA.out_InLoss;
+        MB1_IN1_MHB1_OUT_B40_LG_OPA.execute;
+
+
+
+        MB1_IN2_MHB1_OUT_B3_HG1_OPA.execute;
+        MB1_IN2_MHB1_OUT_B3_LG_OPA.in_Y = MB1_IN2_MHB1_OUT_B3_HG1_OPA.out_Y;
+        MB1_IN2_MHB1_OUT_B3_LG_OPA.in_InLoss = MB1_IN2_MHB1_OUT_B3_HG1_OPA.out_InLoss;
+        MB1_IN2_MHB1_OUT_B3_LG_OPA.execute;
+
+
+        MB1_IN3_MHB1_OUT_B1_HG1_OPA.execute;
+        MB1_IN3_MHB1_OUT_B1_LG_OPA.in_Y = MB1_IN3_MHB1_OUT_B1_HG1_OPA.out_Y;
+        MB1_IN3_MHB1_OUT_B1_LG_OPA.in_InLoss = MB1_IN3_MHB1_OUT_B1_HG1_OPA.out_InLoss;
+        MB1_IN3_MHB1_OUT_B1_LG_OPA.execute;
+
+        MB1_IN2_MHB3_OUT_B3_HG1_OPA.execute; //MUX
+        MB2_IN1_MHB2_OUT_B2_HG1_OPA.execute;
+        MB2_IN1_MHB2_OUT_B2_LG_OPA.in_Y = MB2_IN1_MHB2_OUT_B2_HG1_OPA.out_Y;
+        MB2_IN1_MHB2_OUT_B2_LG_OPA.in_InLoss = MB2_IN1_MHB2_OUT_B2_HG1_OPA.out_InLoss;
+        MB2_IN1_MHB2_OUT_B2_LG_OPA.execute;
+
+
+
+        MB2_IN2_MHB2_OUT_B11_HG1_OPA.execute;
+        MB2_IN2_MHB2_OUT_B11_LG_OPA.in_Y = MB2_IN2_MHB2_OUT_B11_HG1_OPA.out_Y;
+        MB2_IN2_MHB2_OUT_B11_LG_OPA.in_InLoss = MB2_IN2_MHB2_OUT_B11_HG1_OPA.out_InLoss;
+        MB2_IN2_MHB2_OUT_B11_LG_OPA.execute;
+
+
+        MB2_IN3_MHB2_OUT_B39_HG1_OPA.execute;
+        MB2_IN3_MHB2_OUT_B39_LG_OPA.in_Y = MB2_IN3_MHB2_OUT_B39_HG1_OPA.out_Y;
+        MB2_IN3_MHB2_OUT_B39_LG_OPA.in_InLoss = MB2_IN3_MHB2_OUT_B39_HG1_OPA.out_InLoss;
+        MB2_IN3_MHB2_OUT_B39_LG_OPA.execute;
+
+        MB2_IN2_MHB3_OUT_B11_HG1_OPA.execute;
+
+        HB1_IN1_MHB1_OUT_B41_HG1_OPA.execute;
+        HB1_IN1_MHB1_OUT_B41_LG_OPA.in_Y = HB1_IN1_MHB1_OUT_B41_HG1_OPA.out_Y;
+        HB1_IN1_MHB1_OUT_B41_LG_OPA.in_InLoss = HB1_IN1_MHB1_OUT_B41_HG1_OPA.out_InLoss;
+        HB1_IN1_MHB1_OUT_B41_LG_OPA.execute;
+
+
+        HB1_IN2_MHB1_OUT_B40_HG1_OPA.execute;
+        HB1_IN2_MHB1_OUT_B40_LG_OPA.in_Y = HB1_IN2_MHB1_OUT_B40_HG1_OPA.out_Y;
+        HB1_IN2_MHB1_OUT_B40_LG_OPA.in_InLoss = HB1_IN2_MHB1_OUT_B40_HG1_OPA.out_InLoss;
+        HB1_IN2_MHB1_OUT_B40_LG_OPA.execute;
+
+        HB1_IN2_MHB3_OUT_B40_HG1_OPA.execute;
+
+        HB2_IN1_MHB2_OUT_B38_HG1_OPA.execute;
+        HB2_IN1_MHB2_OUT_B38_LG_OPA.in_Y = HB2_IN1_MHB2_OUT_B38_HG1_OPA.out_Y;
+        HB2_IN1_MHB2_OUT_B38_LG_OPA.in_InLoss = HB2_IN1_MHB2_OUT_B38_HG1_OPA.out_InLoss;
+        HB2_IN1_MHB2_OUT_B38_LG_OPA.execute;
+
+
+        HB2_IN2_MHB2_OUT_B30_HG1_OPA.execute;
+        HB2_IN2_MHB2_OUT_B30_LG_OPA.in_Y = HB2_IN2_MHB2_OUT_B30_HG1_OPA.out_Y;
+        HB2_IN2_MHB2_OUT_B30_LG_OPA.in_InLoss = HB2_IN2_MHB2_OUT_B30_HG1_OPA.out_InLoss;
+        HB2_IN2_MHB2_OUT_B30_LG_OPA.execute;
+
+        HB2_IN2_MHB3_OUT_B30_HG1_OPA.execute;
+
+
+        MUX_IN1_MHB3_OUT_B23_HG1_OPA.execute;
+
+        waitForAllResults;
+
+
+        DumpLog_end.LastNFDone = HB2_IN2_MHB2_OUT_B30_LG_OPA.out_InLoss; //need check;
+        DumpLog_end.execute;
+    }
+}

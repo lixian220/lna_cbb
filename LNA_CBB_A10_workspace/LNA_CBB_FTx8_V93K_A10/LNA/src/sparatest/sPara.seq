@@ -1,0 +1,7 @@
+
+sequence sPara {
+
+    sequential loopback {
+            actionCall twoPort;
+    }
+}

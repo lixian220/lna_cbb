@@ -1,0 +1,216 @@
+flow POWER_UP {
+    in Flag = "15dB";
+
+    setup {
+        suite IIHL calls src.dc_tml.DcTest.Leakage {
+            importedSpecName = "setups.specs.OS.IIHL";
+            patternName = setupRef(setups.vectors.patterns.dummy);
+            //          Parameter [ALL_LowLeakage]={
+            //              signals = "USID0+SDATA+SCLK+ATEST";
+            //              forceVoltage = 0.0;
+            //              settlingTime = 5E-3;
+            //              iRange = 5E-6;
+            //              stopVec=0;
+            //          };
+            Parameter [ USID0_Low ] = {
+                signals = "USID0";
+                forceVoltage = 0.0;
+                settlingTime = 5E-3;
+                iRange = 5E-6;
+                stopVec = 0;
+            };
+            Parameter [ SDATA_Low ] = {
+                signals = "SDATA";
+                forceVoltage = 0.0;
+                settlingTime = 5E-3;
+                iRange = 5E-6;
+                stopVec = 0;
+            };
+            Parameter [ SCLK_Low ] = {
+                signals = "SCLK";
+                forceVoltage = 0.0;
+                settlingTime = 5E-3;
+                iRange = 5E-6;
+                stopVec = 0;
+            };
+            Parameter [ ATEST_Low ] = {
+                signals = "ATEST";
+                forceVoltage = 0.0;
+                settlingTime = 5E-3;
+                iRange = 5E-6;
+                stopVec = 0;
+            };
+
+            //          Parameter [ALL_HighLeakage]={
+            //              signals = "USID0+SDATA+SCLK+ATEST";
+            //              forceVoltage = 1.8;
+            //              settlingTime = 5E-3;
+            //              iRange = 5E-6;
+            //              stopVec=1;
+            //          };
+            Parameter [ USID0_High ] = {
+                signals = "USID0";
+                forceVoltage = 1.8;
+                settlingTime = 5E-3;
+                iRange = 5E-6;
+                stopVec = 1;
+            };
+            Parameter [ SDATA_High ] = {
+                signals = "SDATA";
+                forceVoltage = 1.8;
+                settlingTime = 5E-3;
+                iRange = 5E-6;
+                stopVec = 1;
+            };
+            Parameter [ SCLK_High ] = {
+                signals = "SCLK";
+                forceVoltage = 1.8;
+                settlingTime = 5E-3;
+                iRange = 5E-6;
+                stopVec = 1;
+            };
+            Parameter [ ATEST_High ] = {
+                signals = "ATEST";
+                forceVoltage = 1.8;
+                settlingTime = 5E-3;
+                iRange = 5E-6;
+                stopVec = 1;
+            };
+
+
+        }
+        suite Gross_CURRENT calls src.dc_tml.DcTest.CommonCurrent {
+        }
+
+        suite LNA_OFF_CURRENT calls src.dc_tml.DcTest.CommonCurrent {
+        }
+
+        suite ATEST_CURRENT calls src.dc_tml.DcTest.PPMU_Measure {
+        }
+
+        suite POR_15dB calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.POWERUP.normal";
+            PatName = "POR15dB_Write";
+            JudgeFlag = false;
+            signals = "MIPIGRP";
+
+        }
+
+        suite POR_18dB calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.POWERUP.normal";
+            PatName = "POR18dB_Write";
+            JudgeFlag = false;
+            signals = "MIPIGRP";
+
+        }
+
+        suite POR_13dB calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.POWERUP.normal";
+            PatName = "POR13dB_Write";
+            JudgeFlag = false;
+            signals = "MIPIGRP";
+
+
+        }
+
+        suite CHIP_UP calls src.mipi_tml.MIPIWrite_TEST {
+        }
+        suite ATEST_UP calls src.mipi_tml.MIPIWrite_TEST {
+        }
+        suite USID0_1_SETTING calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.OS.OS_FUNC_VSS";
+            PatName = "USID0_1"; //OS_FUNC_VSS
+            JudgeFlag = false;
+        }
+
+        suite USID0_0_SETTING calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.OS.OS_FUNC_VSS";
+            PatName = "USID0_0"; //OS_FUNC_VSS
+            JudgeFlag = false;
+        }
+        suite USID0_1_0X1D calls src.mipi_tml.MIPIRead_TEST { // make a pattern directly
+
+        }
+
+        suite USID0_0_0X18 calls src.mipi_tml.MIPIRead_TEST {
+        }
+
+        suite CHIP_ID calls src.mipi_tml.MIPIRead_TEST {
+        }
+
+        suite PRODUCT_ID calls src.mipi_tml.MIPIRead_TEST {
+        }
+
+        suite MANUFACTURER_ID calls src.mipi_tml.MIPIRead_TEST {
+        }
+
+        suite READ_REGISTERS_POR15dB calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.POWERUP.normal_Read";
+            PatName = "Read_POR15dB_Read";
+            JudgeFlag = true;
+            signals = "MIPIGRP";
+        }
+
+
+        suite GSID_SET_0_CHECK calls src.mipi_tml.MIPIRead_TEST {
+        }
+        suite LNA_OFF_FUNC calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.POWERUP.normal";
+            PatName = "LNA_OFF_Write";
+            JudgeFlag = false;
+            signals = "MIPIGRP";
+        }
+
+
+    }
+
+    execute {
+        if (Flag == "15dB") {
+            IIHL.execute;
+            USID0_1_SETTING.execute;
+            USID0_1_0X1D.execute;
+
+            USID0_0_SETTING.execute;
+            USID0_0_0X18.execute;
+
+            USID0_0_SETTING.execute;
+            Gross_CURRENT.execute;
+            LNA_OFF_CURRENT.execute;
+            ATEST_CURRENT.execute;
+            CHIP_UP.execute;
+            ATEST_UP.execute;
+
+            POR_15dB.execute;
+            //       POR_SHM_R.execute;
+            READ_REGISTERS_POR15dB.execute;
+            CHIP_ID.execute;
+            PRODUCT_ID.execute;
+            MANUFACTURER_ID.execute;
+            GSID_SET_0_CHECK.execute;
+            LNA_OFF_FUNC.execute;
+
+
+        }
+        if (Flag == "18dB") {
+        /*
+        * POR 18dB Write and Read
+        */
+            POR_18dB.execute;
+            //       READ_REGISTERS_POR18dB.execute;
+            LNA_OFF_FUNC.execute;
+
+        }
+        if (Flag == "13dB") {
+        /*
+        * POR 13dB Write and Read
+        */
+            POR_13dB.execute;
+            //       READ_REGISTERS_POR13dB.execute;
+            LNA_OFF_FUNC.execute;
+
+        }
+
+
+
+    }
+}

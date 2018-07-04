@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TestProgram xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="TestProgram.xsd">
+    <General>
+        <Dutboard>common/ExampleBoard.lbd-gen</Dutboard>
+        <GlobalConfiguration></GlobalConfiguration>
+        <GlobalSpecification></GlobalSpecification>
+    </General>
+    <ExecutionDefinition>
+        <TestFlows>
+            <TestFlow name="PreBind" value="common/ExamplePreBind.flow">
+            </TestFlow>
+            <TestFlow name="Main" value="common/ExampleMain.flow">
+            </TestFlow>
+        </TestFlows>
+        <DisabledSites>
+        </DisabledSites>
+    </ExecutionDefinition>
+    <Paths>
+    </Paths>
+    <Variables>
+    </Variables>
+</TestProgram>

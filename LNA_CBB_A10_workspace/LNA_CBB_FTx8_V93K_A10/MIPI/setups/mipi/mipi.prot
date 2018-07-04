@@ -1,0 +1,253 @@
+protocol mipi {
+     // Number of bits of the instruction register
+    // adjust to the Jtag controller implementation
+    val UnsignedLong SizeOfAr = 8;
+    val UnsignedLong SizeOfExtdAr = 16;
+    val UnsignedLong SizeOfDr = 8;
+
+    // state mapping
+    mapping = drv [state0 = "0", state1 = "1"],
+              rcv [state0 = "L", state1 = "H", capture = "C", ignore = "X"];
+
+    // signal roles
+    signalRole DATA {
+        idleSequence = "0";
+    }
+    signalRole CLK {
+        idleSequence = "0";
+    }
+// USID: 0 0          B1000
+// USID: 0 1          B1001
+// USID: 1 0          B1100
+// USID: 1 1          B1101
+
+/*LNA */
+//USID: 0      B1100   C
+//USID: 1      B1101   D
+
+
+
+
+    transaction write (BitSequence IN USID, BitSequence IN AddrIn, BitSequence IN DataIn) {
+        define DATA {
+            field drive idle{};
+            idle = repeat("0", 5);
+            field drive ssc_usid32{};
+            ssc_usid32 = <0b10>; //"10";
+
+            field drive usid10{}; //USID
+            usid10 = USID[0..3]; //0x3 ->0011-> 0 1 2 3
+//            usid10 = USID[0..1];//20180124
+
+            field drive cf{}; //command frame
+            cf = <0b00000000>; //"0000 0000"; CF4(0000=W) BC4 P1
+
+            field drive p1{};
+            p1 = <0b1>^ USID[0]^ USID[1]^ USID[2]^ USID[3];
+//              p1 = <0b1>^ USID[0]^ USID[1];
+
+            field drive addr{};
+            addr = AddrIn[0..7];
+
+            field drive p2{}; //Parity of Address
+            p2 = <0b1>^ AddrIn[7]^ AddrIn[6]^ AddrIn[5]^ AddrIn[4]^ AddrIn[3]^ AddrIn[2]^ AddrIn[1]^ AddrIn[0]; //
+            field drive data{};
+            data = DataIn[0 .. SizeOfDr-1];		//SMT7 way
+            //data = DataIn[SizeOfDr-1..0];			//SMT8 way
+            field drive p3{}; //Parity of Address
+            p3 = <0b1>^ DataIn[7]^ DataIn[6]^ DataIn[5]^ DataIn[4]^ DataIn[3]^ DataIn[2]^ DataIn[1]^ DataIn[0]; //
+
+            field drive train{};
+            train = <0b0000000>;//BP; Idle loop5  //add 1 zero
+        }
+        define CLK {
+            field drive idle{};
+            idle = repeat("0", 5);
+            field drive ssc{};
+            ssc = <0b00>; //"10";
+            field drive clk{};
+            clk = repeat("P", 33);
+            field drive train{};
+            train = repeat("0", 5);
+        }
+    }
+    transaction read (BitSequence IN USID, BitSequence IN AddrIn, UnsignedLong OUT DataOut) {
+        define DATA {
+            field drive idle{};
+            idle = repeat("0", 5);
+            field drive ssc_usid32{};
+            ssc_usid32 = <0b10>; //"10";
+
+            field drive usid10{}; //USID
+            usid10 = USID[0..3];
+//            usid10 = USID[0..1];//20180124
+
+            field drive cf{}; //command frame
+            cf = <0b00100000>; //"0010 0000"; CF4(0010=W) BC4 P1
+
+            field drive p1{};
+            p1 = <0b1>^<0b1>^ USID[0]^ USID[1]^ USID[2]^ USID[3];
+//              p1 = <0b1>^ USID[0]^ USID[1];
+
+            field drive addr{};
+            addr = AddrIn[0..7];
+            field drive p2{}; //Parity of Address
+            p2 = <0b1>^ AddrIn[7]^ AddrIn[6]^ AddrIn[5]^ AddrIn[4]^ AddrIn[3]^ AddrIn[2]^ AddrIn[1]^ AddrIn[0]; //
+
+            field drive bp{};
+            bp = <0b0>; //"0";
+
+            field receive data{};
+            @Properties (captureMode = isOut(DataOut))
+            data = DataOut[7 .. 0];
+
+            //field receive pData{};
+            ////@Properties (captureMode = isOut(DataOut))
+            //pData = "X";
+
+            field drive train{};
+            train = <0b0000000>;//BP; Idle loop5  //add 1 zero
+        }
+        define CLK {
+            field drive idle{};
+            idle = repeat("0", 5);
+            field drive ssc{};
+            ssc = <0b00>; //"10";
+            field drive clk{};
+            clk = repeat("P", 33);
+            field drive train{};
+            train = repeat("0", 5);
+        }
+        DataOut=DATA.data[0 .. 7];
+    }
+     transaction read_Compare (BitSequence IN USID, BitSequence IN AddrIn, UnsignedLong INOUT DataOut) {
+        define DATA {
+            field drive idle{};
+            idle = repeat("0", 5);
+            field drive ssc_usid32{};
+            ssc_usid32 = <0b10>; //"10";
+
+            field drive usid10{}; //USID
+            usid10 = USID[0..3];
+//            usid10 = USID[0..1];//20180124
+
+            field drive cf{}; //command frame
+            cf = <0b00100000>; //"0010 0000"; CF4(0010=W) BC4 P1
+
+            field drive p1{};
+            p1 = <0b1>^<0b1>^ USID[0]^ USID[1]^ USID[2]^ USID[3];
+//              p1 = <0b1>^ USID[0]^ USID[1];
+
+            field drive addr{};
+            addr = AddrIn[0..7];
+            field drive p2{}; //Parity of Address
+            p2 = <0b1>^ AddrIn[7]^ AddrIn[6]^ AddrIn[5]^ AddrIn[4]^ AddrIn[3]^ AddrIn[2]^ AddrIn[1]^ AddrIn[0]; //
+
+            field drive bp{};
+            bp = <0b0>; //"0";
+
+            field receive data{};
+            @Properties (captureMode = false)
+            data = DataOut[7 .. 0];
+
+            //field receive pData{};
+            ////@Properties (captureMode = isOut(DataOut))
+            //pData = "X";
+
+            field drive train{};
+            train = <0b0000000>;//BP; Idle loop5  //add 1 zero
+        }
+        define CLK {
+            field drive idle{};
+            idle = repeat("0", 5);
+            field drive ssc{};
+            ssc = <0b00>; //"10";
+            field drive clk{};
+            clk = repeat("P", 33);
+            field drive train{};
+            train = repeat("0", 5);
+        }
+        DataOut=DATA.data[0 .. 7];
+    }
+
+
+    transaction waitTime (UnsignedLong IN CycleNum) {
+        define DATA {
+            field drive idle{};
+            idle = repeat("0",CycleNum);
+        }
+        define CLK {
+            field drive idle{};
+            idle = repeat("0",CycleNum);
+        }
+    }
+
+
+
+
+/*
+    transaction write_long (BitSequence IN USID, BitSequence IN AddrIn, BitSequence IN DataIn) {
+        define MIPI {
+            field drive idle{};
+            idle = repeat("0", 5);
+            field drive ssc{};
+            ssc = <0b10>; //"10";
+
+            field drive usid{}; //USID
+            usid = USID[0 .. USID.length()-1];
+
+            field drive cf{}; //command frame
+            cf = <0b000000001>; //"1000 0000 0000 0"; CF4 BC4 P1
+
+            field drive addrH{};
+            addrH = AddrIn[0 .. AddrIn.length()-1];
+            field drive p2{}; //Parity of Address
+            p2 = <0b1>; //
+
+            field drive addrL{};
+            addrL = AddrIn[0 .. AddrIn.length()-1];
+            field drive p3{}; //Parity of Address
+            p3 = <0b1>; //
+
+            field drive data{};
+            //data = DataIn[0 .. SizeOfDr-1];		//SMT7 way
+            data = DataIn[SizeOfDr-1..0];			//SMT8 way
+
+            field drive train{};
+            train = <0b1100000>;//Parity of Data; BP; Idle loop5
+        }
+    }
+    transaction read_long (BitSequence IN USID, BitSequence IN AddrIn, BitSequence INOUT DataOut) {
+        define MIPI {
+            field drive idle{};
+            idle = repeat("0", 5);
+            field drive ssc{};
+            ssc = <0b10>; //"10";
+
+            field drive usid{}; //USID
+            usid = USID[0 .. USID.length()-1];
+
+            field drive cf{}; //command frame
+            cf = <0b000000001>; //"0000 0000 0"; SA4 CF4 BC4 P1
+
+            field drive addrH{};
+            addrH = AddrIn[0 .. AddrIn.length()-1];
+            field drive p2{}; //Parity of Address
+            p2 = <0b1>; //
+
+            field drive addrL{};
+            addrL = AddrIn[0 .. AddrIn.length()-1];
+            field drive p3{}; //Parity of Address ; BP
+            p3 = <0b11>; //
+
+            field receive data{};
+            @Properties (captureMode = isOut(DataOut))
+            data = DataOut[0 .. DataOut.length()-1];
+
+            field drive train{};
+            train = <0b1100000>;//Parity of Data; BP; Idle loop5
+        }
+        DataOut=MIPI.data[SizeOfDr-1 .. 0];
+    }
+    */
+}

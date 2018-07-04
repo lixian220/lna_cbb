@@ -1,0 +1,283 @@
+flow RF_CHAR_POR15dB {
+    setup {
+        flow Sparm calls src.sparatest.sParaFlow {
+        }
+
+        suite LB1_IN1_LB_OUT_B5_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN1_LB_OUT_B5_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN1_LB_OUT_B5_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN1_LB_OUT_B5_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN1_LB_OUT_B5_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN2_LB_OUT_B28_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN2_LB_OUT_B28_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN2_LB_OUT_B28_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN2_LB_OUT_B28_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN2_LB_OUT_B28_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN3_LB_OUT_B8_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN3_LB_OUT_B8_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN3_LB_OUT_B8_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN3_LB_OUT_B8_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN3_LB_OUT_B8_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN4_LB_OUT_B13_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN4_LB_OUT_B13_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN4_LB_OUT_B13_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN4_LB_OUT_B13_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN4_LB_OUT_B13_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN5_LB_OUT_B20_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN5_LB_OUT_B20_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN5_LB_OUT_B20_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN5_LB_OUT_B20_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite LB1_IN5_LB_OUT_B20_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN1_MHB1_OUT_B40_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN1_MHB1_OUT_B40_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN1_MHB1_OUT_B40_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN1_MHB1_OUT_B40_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN1_MHB1_OUT_B40_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN2_MHB1_OUT_B3_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN2_MHB1_OUT_B3_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN2_MHB1_OUT_B3_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN2_MHB1_OUT_B3_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN2_MHB1_OUT_B3_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN3_MHB1_OUT_B1_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN3_MHB1_OUT_B1_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN3_MHB1_OUT_B1_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN3_MHB1_OUT_B1_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN3_MHB1_OUT_B1_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB1_IN2_MHB3_OUT_B3_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN1_MHB2_OUT_B2_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN1_MHB2_OUT_B2_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN1_MHB2_OUT_B2_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN1_MHB2_OUT_B2_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN1_MHB2_OUT_B2_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN2_MHB2_OUT_B11_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN2_MHB2_OUT_B11_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN2_MHB2_OUT_B11_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN2_MHB2_OUT_B11_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN2_MHB2_OUT_B11_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN3_MHB2_OUT_B39_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN3_MHB2_OUT_B39_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN3_MHB2_OUT_B39_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN3_MHB2_OUT_B39_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN3_MHB2_OUT_B39_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MB2_IN2_MHB3_OUT_B11_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN1_MHB1_OUT_B41_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN1_MHB1_OUT_B41_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN1_MHB1_OUT_B41_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN1_MHB1_OUT_B41_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN1_MHB1_OUT_B41_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN2_MHB1_OUT_B40_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN2_MHB1_OUT_B40_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN2_MHB1_OUT_B40_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN2_MHB1_OUT_B40_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN2_MHB1_OUT_B40_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB1_IN2_MHB3_OUT_B40_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN1_MHB2_OUT_B38_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN1_MHB2_OUT_B38_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN1_MHB2_OUT_B38_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN1_MHB2_OUT_B38_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN1_MHB2_OUT_B38_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN2_MHB2_OUT_B30_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN2_MHB2_OUT_B30_LG3_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN2_MHB2_OUT_B30_LG4_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN2_MHB2_OUT_B30_LP_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN2_MHB2_OUT_B30_HG1_OPB calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite HB2_IN2_MHB3_OUT_B30_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+        suite MUX_IN1_MHB3_OUT_B23_HG1_OPA calls src.rf2rf_tml.RF2RFBurst_TEST {
+        }
+
+        //        suite CAL_ceck calls  src.rf2rf_tml.cal_check{
+        //
+        //        }
+
+    }
+
+    execute {
+        LB1_IN1_LB_OUT_B5_HG1_OPA.execute;
+        LB1_IN1_LB_OUT_B5_LG3_OPA.execute;
+        LB1_IN1_LB_OUT_B5_LG4_OPA.execute;
+        LB1_IN1_LB_OUT_B5_LP_OPA.execute;
+        LB1_IN1_LB_OUT_B5_HG1_OPB.execute;
+
+
+        LB1_IN2_LB_OUT_B28_HG1_OPA.execute;
+        LB1_IN2_LB_OUT_B28_LG3_OPA.execute;
+        LB1_IN2_LB_OUT_B28_LG4_OPA.execute;
+        LB1_IN2_LB_OUT_B28_LP_OPA.execute;
+        LB1_IN2_LB_OUT_B28_HG1_OPB.execute;
+
+
+        LB1_IN3_LB_OUT_B8_HG1_OPA.execute;
+        LB1_IN3_LB_OUT_B8_LG3_OPA.execute;
+        LB1_IN3_LB_OUT_B8_LG4_OPA.execute;
+        LB1_IN3_LB_OUT_B8_LP_OPA.execute;
+        LB1_IN3_LB_OUT_B8_HG1_OPB.execute;
+
+        LB1_IN4_LB_OUT_B13_HG1_OPA.execute;
+        LB1_IN4_LB_OUT_B13_LG3_OPA.execute;
+        LB1_IN4_LB_OUT_B13_LG4_OPA.execute;
+        LB1_IN4_LB_OUT_B13_LP_OPA.execute;
+        LB1_IN4_LB_OUT_B13_HG1_OPB.execute;
+
+        LB1_IN5_LB_OUT_B20_HG1_OPA.execute;
+        LB1_IN5_LB_OUT_B20_LG3_OPA.execute;
+        LB1_IN5_LB_OUT_B20_LG4_OPA.execute;
+        LB1_IN5_LB_OUT_B20_LP_OPA.execute;
+        LB1_IN5_LB_OUT_B20_HG1_OPB.execute;
+
+        MB1_IN1_MHB1_OUT_B40_HG1_OPA.execute;
+        MB1_IN1_MHB1_OUT_B40_LG3_OPA.execute;
+        MB1_IN1_MHB1_OUT_B40_LG4_OPA.execute;
+        MB1_IN1_MHB1_OUT_B40_LP_OPA.execute;
+        MB1_IN1_MHB1_OUT_B40_HG1_OPB.execute;
+
+        MB1_IN2_MHB1_OUT_B3_HG1_OPA.execute;
+        MB1_IN2_MHB1_OUT_B3_LG3_OPA.execute;
+        MB1_IN2_MHB1_OUT_B3_LG4_OPA.execute;
+        MB1_IN2_MHB1_OUT_B3_LP_OPA.execute;
+        MB1_IN2_MHB1_OUT_B3_HG1_OPB.execute;
+
+        MB1_IN3_MHB1_OUT_B1_HG1_OPA.execute;
+        MB1_IN3_MHB1_OUT_B1_LG3_OPA.execute;
+        MB1_IN3_MHB1_OUT_B1_LG4_OPA.execute;
+        MB1_IN3_MHB1_OUT_B1_LP_OPA.execute;
+        MB1_IN3_MHB1_OUT_B1_HG1_OPB.execute;
+
+        MB1_IN2_MHB3_OUT_B3_HG1_OPA.execute;
+
+        MB2_IN1_MHB2_OUT_B2_HG1_OPA.execute;
+        MB2_IN1_MHB2_OUT_B2_LG3_OPA.execute;
+        MB2_IN1_MHB2_OUT_B2_LG4_OPA.execute;
+        MB2_IN1_MHB2_OUT_B2_LP_OPA.execute;
+        MB2_IN1_MHB2_OUT_B2_HG1_OPB.execute;
+
+        MB2_IN2_MHB2_OUT_B11_HG1_OPA.execute;
+        MB2_IN2_MHB2_OUT_B11_LG3_OPA.execute;
+        MB2_IN2_MHB2_OUT_B11_LG4_OPA.execute;
+        MB2_IN2_MHB2_OUT_B11_LP_OPA.execute;
+        MB2_IN2_MHB2_OUT_B11_HG1_OPB.execute;
+
+        MB2_IN3_MHB2_OUT_B39_HG1_OPA.execute;
+        MB2_IN3_MHB2_OUT_B39_LG3_OPA.execute;
+        MB2_IN3_MHB2_OUT_B39_LG4_OPA.execute;
+        MB2_IN3_MHB2_OUT_B39_LP_OPA.execute;
+        MB2_IN3_MHB2_OUT_B39_HG1_OPB.execute;
+
+        MB2_IN2_MHB3_OUT_B11_HG1_OPA.execute;
+
+        HB1_IN1_MHB1_OUT_B41_HG1_OPA.execute;
+        HB1_IN1_MHB1_OUT_B41_LG3_OPA.execute;
+        HB1_IN1_MHB1_OUT_B41_LG4_OPA.execute;
+        HB1_IN1_MHB1_OUT_B41_LP_OPA.execute;
+        HB1_IN1_MHB1_OUT_B41_HG1_OPB.execute;
+
+        HB1_IN2_MHB1_OUT_B40_HG1_OPA.execute;
+        HB1_IN2_MHB1_OUT_B40_LG3_OPA.execute;
+        HB1_IN2_MHB1_OUT_B40_LG4_OPA.execute;
+        HB1_IN2_MHB1_OUT_B40_LP_OPA.execute;
+        HB1_IN2_MHB1_OUT_B40_HG1_OPB.execute;
+
+        HB1_IN2_MHB3_OUT_B40_HG1_OPA.execute;
+
+
+        HB2_IN1_MHB2_OUT_B38_HG1_OPA.execute;
+        HB2_IN1_MHB2_OUT_B38_LG3_OPA.execute;
+        HB2_IN1_MHB2_OUT_B38_LG4_OPA.execute;
+        HB2_IN1_MHB2_OUT_B38_LP_OPA.execute;
+        HB2_IN1_MHB2_OUT_B38_HG1_OPB.execute;
+
+        HB2_IN2_MHB2_OUT_B30_HG1_OPA.execute;
+        HB2_IN2_MHB2_OUT_B30_LG3_OPA.execute;
+        HB2_IN2_MHB2_OUT_B30_LG4_OPA.execute;
+        HB2_IN2_MHB2_OUT_B30_LP_OPA.execute;
+        HB2_IN2_MHB2_OUT_B30_HG1_OPB.execute;
+
+        HB2_IN2_MHB3_OUT_B30_HG1_OPA.execute;
+
+        MUX_IN1_MHB3_OUT_B23_HG1_OPA.execute;
+
+
+
+
+
+
+    }
+}

@@ -1,0 +1,64 @@
+flow LNA_FTA_V93K {
+    setup {
+        flow OS calls testflows.OS {
+        }
+        flow POWER_UP calls testflows.POWER_UP {
+        }
+
+        flow RF_FT calls RF_FT {
+        }
+
+        //    flow PowerServo_OFF_HG1 calls Power_Servo_OFF_HG1{}
+        flow DFT calls testflows.DFT {
+        }
+
+        suite OS_POST calls src.dc_tml.DcTest.CommonCurrent {
+        }
+
+
+        suite PORRegBurst_POR15dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_FT_Test.ods";
+            POR_Sheets = # [ "POR15dB" , "Read_POR15dB" ];
+        }
+        suite PORRegBurst_POR13dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_FT_Test.ods";
+            POR_Sheets = # [ "POR13dB" ];
+        }
+        suite PORRegBurst_POR18dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_FT_Test.ods";
+            POR_Sheets = # [ "POR18dB" ];
+        }
+
+        suite LNA_OFF calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_FT_Test.ods";
+            POR_Sheets = # [ "LNA_OFF" ];
+        }
+        suite ATEST calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_DC_Test.ods";
+            POR_Sheets = # [ "ATEST" ];
+        }
+
+        //    suite LNA_Conversiom calls RF2RF_tml.LNA_Limit_Conversion{
+
+        //    }
+
+    }
+
+
+
+
+    execute {
+        println(">>>>>>>>>>>>>>>>>>>>>>>>>>>This is FT program>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        OS.execute;
+
+        POWER_UP.Flag = "15dB";
+        POWER_UP.execute;
+        RF_FT.execute;
+        //    PowerServo_OFF_HG1.execute;
+        DFT.execute;
+        OS_POST.execute;
+
+
+        addBin(1);
+    }
+}

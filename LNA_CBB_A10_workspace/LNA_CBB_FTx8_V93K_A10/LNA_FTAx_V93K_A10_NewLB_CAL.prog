@@ -1,0 +1,17 @@
+testprogram LNA_FTAx_V93K_A10_NewLB_CAL {
+
+    dutboard = pogo_LNA_X8;
+    //  ignoredsites = 2-8;
+    var NF_FLAG = false;
+    var CAL_Delta = false;
+
+    testflow PreBind {
+        flow = testflows.PreBind_NewLBCal;
+    }
+
+    testflow Main {
+        flow = testflows.LNA_FTA_V93K_NewLBCAL;
+    }
+
+}
+

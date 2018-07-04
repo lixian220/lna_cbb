@@ -1,0 +1,197 @@
+flow LNA_FTA_V93K_CHAR {
+    setup {
+        flow OS calls testflows.OS {
+        }
+        flow POWER_UP calls testflows.POWER_UP {
+        }
+
+
+        flow RF_CHAR_POR15dB calls RF_CHAR_POR15dB {
+        }
+        flow RF_CHAR_POR18dB calls RF_CHAR_POR18dB {
+        }
+        flow RF_CHAR_POR13dB calls RF_CHAR_POR13dB {
+        }
+
+        flow PowerServo calls Power_Servo_OFF_HG1 {
+        }
+        flow DFT calls testflows.DFT {
+        }
+        flow DFT_CHAR calls VMIN_PM_SHM {
+        }
+
+        suite OS_POST calls src.dc_tml.DcTest.CommonCurrent {
+        }
+        suite POR_ST_time calls src.rf2rf_tml.PORSettlingTime_TEST {
+        }
+
+        suite change_charSpec calls src.rf2rf_tml.utilities.Change_SpecVar {
+            importSpec = "setups.specs.POWERUP.normal";
+        }
+        suite PORRegBurst_POR15dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_CHAR_Test.ods";
+            POR_Sheets = # [ "POR15dB" , "Read_POR15dB" ];
+        }
+        suite PORRegBurst_POR13dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_CHAR_Test.ods";
+            POR_Sheets = # [ "POR13dB" ];
+        }
+        suite PORRegBurst_POR18dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_CHAR_Test.ods";
+            POR_Sheets = # [ "POR18dB" ];
+        }
+        suite LNA_OFF calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_FT_Test.ods";
+            POR_Sheets = # [ "LNA_OFF" ];
+        }
+        suite ATEST calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_DC_Test.ods";
+            POR_Sheets = # [ "ATEST" ];
+        }
+
+        suite DISCONNECT calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.OS.OS_POST";
+            PatName = "dummy";
+            JudgeFlag = false;
+        }
+
+    }
+
+
+
+
+    execute {
+        println(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>This is Char program>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>");
+        DISCONNECT.execute;
+        OS.execute;
+        POWER_UP.Flag = "15dB";
+        println("INFO:POR15dB LOOP START!!!!!!") POR_ST_time.execute;
+
+        change_charSpec.var1 = 0.9;
+        change_charSpec.var2 = 0.9;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        PowerServo.execute;
+        RF_CHAR_POR15dB.execute;
+        DFT.execute;
+
+        change_charSpec.var1 = 0.95;
+        change_charSpec.var2 = 0.93;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        PowerServo.execute;
+        RF_CHAR_POR15dB.execute;
+        DFT.execute;
+
+
+        change_charSpec.var1 = 1.0;
+        change_charSpec.var2 = 1.0;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        PowerServo.execute;
+        RF_CHAR_POR15dB.execute;
+        DFT.execute;
+        DFT_CHAR.execute; //shm,vmin,pm
+        change_charSpec.var1 = 1.03;
+        change_charSpec.var2 = 1.05;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        PowerServo.execute;
+        RF_CHAR_POR15dB.execute;
+        DFT.execute;
+
+
+        change_charSpec.var1 = 1.05;
+        change_charSpec.var2 = 1.10;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        PowerServo.execute;
+        RF_CHAR_POR15dB.execute;
+        DFT.execute;
+
+        ////=================== POR_18dB =================================
+        println("INFO:POR18dB LOOP START!!!!!!") POWER_UP.Flag = "18dB";
+        change_charSpec.var1 = 0.9;
+        change_charSpec.var2 = 0.9;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR18dB.execute;
+
+
+        change_charSpec.var1 = 0.95;
+        change_charSpec.var2 = 0.93;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR18dB.execute;
+
+
+
+        change_charSpec.var1 = 1.0;
+        change_charSpec.var2 = 1.0;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR18dB.execute;
+
+
+
+        change_charSpec.var1 = 1.03;
+        change_charSpec.var2 = 1.05;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR18dB.execute;
+
+
+
+        change_charSpec.var1 = 1.05;
+        change_charSpec.var2 = 1.10;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR18dB.execute;
+
+        ////=================== POR_13dB =================================
+        println("INFO:POR13dB LOOP START!!!!!!") POWER_UP.Flag = "13dB";
+        change_charSpec.var1 = 0.9;
+        change_charSpec.var2 = 0.9;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR13dB.execute;
+
+
+        change_charSpec.var1 = 0.95;
+        change_charSpec.var2 = 0.93;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR13dB.execute;
+
+
+
+        change_charSpec.var1 = 1.0;
+        change_charSpec.var2 = 1.0;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR13dB.execute;
+
+
+
+        change_charSpec.var1 = 1.03;
+        change_charSpec.var2 = 1.05;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR13dB.execute;
+
+
+
+        change_charSpec.var1 = 1.05;
+        change_charSpec.var2 = 1.10;
+        change_charSpec.execute;
+        POWER_UP.execute;
+        RF_CHAR_POR13dB.execute;
+
+
+        DISCONNECT.execute;
+        OS_POST.execute;
+
+
+        addBin(1);
+    }
+}

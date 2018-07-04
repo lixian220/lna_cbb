@@ -1,0 +1,97 @@
+flow Power_Servo_LG4_LG3 {
+
+    setup {
+
+        suite LB1_IN1_LB_OUT_B5_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite LB1_IN2_LB_OUT_B28_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite LB1_IN3_LB_OUT_B8_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite LB1_IN4_LB_OUT_B13_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite LB1_IN5_LB_OUT_B20_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+
+        suite MB1_IN1_MHB1_OUT_B40_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite MB1_IN2_MHB1_OUT_B3_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite MB1_IN3_MHB1_OUT_B1_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite MB1_IN2_MHB3_OUT_B3_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+
+        suite MB2_IN1_MHB2_OUT_B2_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite MB2_IN2_MHB2_OUT_B11_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite MB2_IN3_MHB2_OUT_B39_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite MB2_IN2_MHB3_OUT_B11_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+
+        suite HB1_IN1_MHB1_OUT_B41_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite HB1_IN2_MHB1_OUT_B40_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite HB1_IN2_MHB3_OUT_B40_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+
+        suite HB2_IN1_MHB2_OUT_B38_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite HB2_IN2_MHB2_OUT_B30_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+        suite HB2_IN2_MHB3_OUT_B30_HG1_OPA_PS_LG4_LG3 calls src.rf2rf_tml.RFPowerSettlingTime_TEST{
+
+        }
+    }
+
+
+    execute {
+
+        LB1_IN1_LB_OUT_B5_HG1_OPA_PS_LG4_LG3.execute();
+        LB1_IN2_LB_OUT_B28_HG1_OPA_PS_LG4_LG3.execute();
+        LB1_IN3_LB_OUT_B8_HG1_OPA_PS_LG4_LG3.execute();
+        LB1_IN4_LB_OUT_B13_HG1_OPA_PS_LG4_LG3.execute();
+        LB1_IN5_LB_OUT_B20_HG1_OPA_PS_LG4_LG3.execute();
+        MB1_IN1_MHB1_OUT_B40_HG1_OPA_PS_LG4_LG3.execute();
+        MB1_IN2_MHB1_OUT_B3_HG1_OPA_PS_LG4_LG3.execute();
+        MB1_IN3_MHB1_OUT_B1_HG1_OPA_PS_LG4_LG3.execute();
+        MB1_IN2_MHB3_OUT_B3_HG1_OPA_PS_LG4_LG3.execute();
+        MB2_IN1_MHB2_OUT_B2_HG1_OPA_PS_LG4_LG3.execute();
+        MB2_IN2_MHB2_OUT_B11_HG1_OPA_PS_LG4_LG3.execute();
+        MB2_IN3_MHB2_OUT_B39_HG1_OPA_PS_LG4_LG3.execute();
+        MB2_IN2_MHB3_OUT_B11_HG1_OPA_PS_LG4_LG3.execute();
+        HB1_IN1_MHB1_OUT_B41_HG1_OPA_PS_LG4_LG3.execute();
+        HB1_IN2_MHB1_OUT_B40_HG1_OPA_PS_LG4_LG3.execute();
+        HB1_IN2_MHB3_OUT_B40_HG1_OPA_PS_LG4_LG3.execute();
+        HB2_IN1_MHB2_OUT_B38_HG1_OPA_PS_LG4_LG3.execute();
+        HB2_IN2_MHB2_OUT_B30_HG1_OPA_PS_LG4_LG3.execute();
+        HB2_IN2_MHB3_OUT_B30_HG1_OPA_PS_LG4_LG3.execute();
+
+
+
+
+
+
+    }
+}

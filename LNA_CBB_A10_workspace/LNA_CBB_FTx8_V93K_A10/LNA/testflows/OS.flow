@@ -1,0 +1,150 @@
+flow OS {
+    setup {
+
+    /*
+ * ****************************************OS START***************************************************
+ */
+        suite OS_POWER_SHORT calls src.dc_tml.DcTest.CommonCurrent {
+        }
+
+
+        suite OS_VDD_FUNC calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.OS.OS_FUNC_VDD";
+            PatName = "OS_FUNC_VDD";
+            signals = "OS_VDD";
+        }
+        suite OS_VSS_FUNC calls src.rfcbb_tml.Functional_Test {
+            importSpec = "setups.specs.OS.OS_FUNC_VSS";
+            PatName = "OS_FUNC_VSS"; //OS_FUNC_VSS
+            signals = "OS_VSS";
+        }
+        suite OS_VDD_Open_PPMU calls com.advantest.itee.tml.dctml.Continuity {
+            measurement.specificationName = setupRef(setups.Common.groups);
+            measureMode = Serial;
+            dpsSignals = "ALL_DPS_PINS";
+            signalGroup [ OS_VDD ] = {
+                signals = "OS_VDD";
+                forceCurrent = 10E-6;
+                settlingTime = 5E-3;
+                parametricTestDescriptor.logLevel = 40;
+                parametricTestDescriptor.testNumber = 21000000;
+                //            parametricTestDescriptor.lowLimit = Double.NEGATIVE_INFINITY;
+                parametricTestDescriptor.lowLimit = - 999;
+                parametricTestDescriptor.highLimit = 0.8;
+                parametricTestDescriptor.testText = "OS_VDD_Open_PPMU";
+                parametricTestDescriptor.softBinId = 2100;
+                isMeasureSignalSerial = true;
+                isRestoreToRefVoltage = true;
+
+
+            };
+        }
+        suite OS_VDD_Short_PPMU calls com.advantest.itee.tml.dctml.Continuity {
+            measurement.specificationName = setupRef(setups.Common.groups);
+            measureMode = Serial;
+            dpsSignals = "ALL_DPS_PINS";
+            signalGroup [ OS_VDD ] = {
+                signals = "OS_VDD";
+                forceCurrent = 10E-6;
+                settlingTime = 5E-3;
+                parametricTestDescriptor.logLevel = 40;
+                parametricTestDescriptor.testNumber = 22000000;
+                parametricTestDescriptor.lowLimit = 0.2;
+                //         parametricTestDescriptor.highLimit =Double.POSITIVE_INFINITY ;
+                parametricTestDescriptor.highLimit = 999;
+                parametricTestDescriptor.testText = "OS_VDD_Short_PPMU";
+                parametricTestDescriptor.softBinId = 2200;
+                isMeasureSignalSerial = true;
+                isRestoreToRefVoltage = true;
+            };
+        }
+
+        suite OS_VSS_Open_PPMU calls com.advantest.itee.tml.dctml.Continuity {
+            measurement.specificationName = setupRef(setups.Common.groups);
+            measureMode = Serial;
+            dpsSignals = "ALL_DPS_PINS";
+            signalGroup [ OS_VSS ] = {
+                signals = "OS_VSS";
+                forceCurrent = - 10E-6;
+                settlingTime = 5E-3;
+                parametricTestDescriptor.logLevel = 40;
+                parametricTestDescriptor.testNumber = 23000000;
+                parametricTestDescriptor.lowLimit = - 0.8;
+                //  parametricTestDescriptor.highLimit = Double.POSITIVE_INFINITY;
+                parametricTestDescriptor.highLimit = 999;
+                parametricTestDescriptor.testText = "OS_VSS_Open_PPMU";
+                parametricTestDescriptor.softBinId = 2300;
+                isMeasureSignalSerial = true;
+                isRestoreToRefVoltage = true;
+            };
+        }
+        suite OS_VSS_Short_PPMU calls com.advantest.itee.tml.dctml.Continuity {
+            measurement.specificationName = setupRef(setups.Common.groups);
+            measureMode = Serial;
+            dpsSignals = "ALL_DPS_PINS";
+            signalGroup [ OS_VSS ] = {
+                signals = "OS_VSS";
+                forceCurrent = - 10E-6;
+                settlingTime = 5E-3;
+                parametricTestDescriptor.logLevel = 40;
+                parametricTestDescriptor.testNumber = 24000000;
+                //   parametricTestDescriptor.lowLimit = Double.NEGATIVE_INFINITY;
+                parametricTestDescriptor.lowLimit = - 999;
+                parametricTestDescriptor.highLimit = - 0.2;
+                parametricTestDescriptor.testText = "OS_VSS_Short_PPMU";
+                parametricTestDescriptor.softBinId = 2400;
+                isMeasureSignalSerial = true;
+                isRestoreToRefVoltage = true;
+            };
+        }
+        /*
+ * ****************************************OS END***************************************************
+ */
+/*
+ * ****************************************LB ID START***************************************************
+ * if you want to set LBID, pls open command below!
+ */
+        suite FC_LBID_READ calls src.rfcbb_tml.com.Loadboard_ID {
+        //               dutBdId= 2;		//ID you need to write to EEPROM
+        //            wEEPROM= true;		// true: write dutBdId to EEPROM; false: read LBID
+
+        }
+        /*
+ * ****************************************LB ID END***************************************************
+ */
+    }
+    execute {
+        OS_POWER_SHORT.execute;
+
+
+        if (! OS_POWER_SHORT.pass) {
+            stop;
+        }
+
+        OS_VDD_FUNC.execute;
+        if (! OS_VDD_FUNC.pass) {
+            OS_VDD_Open_PPMU.execute;
+            OS_VDD_Short_PPMU.execute;
+            if (!(OS_VDD_Open_PPMU.pass || OS_VDD_Short_PPMU.pass)) {
+                stop;
+            }
+        }
+
+        OS_VSS_FUNC.execute;
+        if (! OS_VSS_FUNC.pass) {
+            OS_VSS_Open_PPMU.execute;
+            OS_VSS_Short_PPMU.execute;
+            if (!(OS_VSS_Open_PPMU.pass || OS_VSS_Short_PPMU.pass)) {
+                stop;
+            }
+        }
+
+
+        FC_LBID_READ.execute;
+
+        if (! FC_LBID_READ.pass) {
+            stop;
+        }
+
+    }
+}

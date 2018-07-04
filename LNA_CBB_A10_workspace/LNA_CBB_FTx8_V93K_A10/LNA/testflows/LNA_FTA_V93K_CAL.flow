@@ -1,0 +1,45 @@
+flow LNA_FTA_V93K_CAL {
+    setup {
+        flow CAL calls testflows.CAL {
+        }
+        flow CAL_Delat_judge calls testflows.DeltaFlow {
+        }
+        flow OS calls testflows.OS {
+        }
+        flow POWER_UP calls testflows.POWER_UP {
+        }
+
+        suite PORRegBurst_POR15dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_CHAR_Test.ods";
+            POR_Sheets = # [ "POR15dB" , "Read_POR15dB" ];
+        }
+        suite PORRegBurst_POR13dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_CHAR_Test.ods";
+            POR_Sheets = # [ "POR13dB" ];
+        }
+        suite PORRegBurst_POR18dB calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_CHAR_Test.ods";
+            POR_Sheets = # [ "POR18dB" ];
+        }
+        suite LNA_OFF calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_RF_FT_Test.ods";
+            POR_Sheets = # [ "LNA_OFF" ];
+        }
+        suite ATEST calls src.reg_tools.CreatePORPatternFromODS {
+            ODSFileName = "LNA/testtable/files/LNA_DC_Test.ods";
+            POR_Sheets = # [ "ATEST" ];
+        }
+
+
+    }
+
+    execute {
+        OS.execute;
+        POWER_UP.Flag = "15dB";
+        POWER_UP.execute;
+        CAL.execute;
+        CAL_Delat_judge.execute();
+        addBin(1);
+
+    }
+}

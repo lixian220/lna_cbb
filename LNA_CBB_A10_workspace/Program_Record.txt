@@ -1,0 +1,6 @@
+2018.3.27 
+1.NO P1dB_Flag and don't test NF.
+2.IIHL current issue. needn't update IIHL level. 
+2018.3.28 
+1.CAL: under calmode, add waitcall 3s after LNAOFF.
+2.Update IIHL issue and OS current&softbin

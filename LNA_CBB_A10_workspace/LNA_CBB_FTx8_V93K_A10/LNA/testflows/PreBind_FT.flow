@@ -1,0 +1,33 @@
+
+flow PreBind_FT {
+
+    setup {
+
+        suite import_limit_table_FT calls com.advantest.itee.testtable.testmethod.TestTableReader {
+           testTablePath = "testtable/LNA_FT.conf.ods";
+            limitCategory = "FT";
+            logLevelCategory = "FT";
+            forceImport = true;
+            printToConsole = false;
+           createParameterGroups = true;
+
+        }
+
+        suite initCalData calls src.rfcbb_tml.com.InitCalData{
+              CalDataFilePath = "calibration/LNA_CAL_prod.ods";
+        }
+        suite initRegData calls src.reg_tools.InitRegData{
+            RegDataFilePath = "LNA/testtable/files/LNA_RF_FT_Test.ods";
+        }
+
+
+    }
+
+    execute {
+
+             import_limit_table_FT.execute;
+             println("INFO: Load FT Finished!!!!!!!");
+             initCalData.execute;
+             initRegData.execute;
+    }
+}

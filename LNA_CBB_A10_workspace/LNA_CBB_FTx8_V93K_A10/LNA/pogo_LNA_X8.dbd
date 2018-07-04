@@ -1,0 +1,214 @@
+dutboard pogo_LNA_X8 {
+     sites = 8;
+
+
+     signal SCLK {
+         site 1 { pogo = 10108; }
+         site 2 { pogo = 10116; }
+         site 3 { pogo = 10508; }
+         site 4 { pogo = 10516; }
+         site 5 { pogo = 10104; }
+         site 6 { pogo = 10112; }
+         site 7 { pogo = 10504; }
+         site 8 { pogo = 10512; }
+     }
+
+     signal SDATA {
+         site 1 { pogo = 10105; }
+         site 2 { pogo = 10113; }
+         site 3 { pogo = 10505; }
+         site 4 { pogo = 10513; }
+         site 5 { pogo = 10101; }
+         site 6 { pogo = 10109; }
+         site 7 { pogo = 10501; }
+         site 8 { pogo = 10509; }
+     }
+
+
+
+     signal USID0 {
+         site 1 { pogo = 10107; }
+         site 2 { pogo = 10115; }
+         site 3 { pogo = 10507; }
+         site 4 { pogo = 10515; }
+         site 5 { pogo = 10103; }
+         site 6 { pogo = 10111; }
+         site 7 { pogo = 10503; }
+         site 8 { pogo = 10511; }
+     }
+     signal TC_SW1_1{
+         site 1 { pogo = 10610; }
+         site 2 { pogo = 10610; }
+         site 3 { pogo = 10610; }
+         site 4 { pogo = 10610; }
+         site 5 { pogo = 10610; }
+         site 6 { pogo = 10610; }
+         site 7 { pogo = 10610; }
+         site 8 { pogo = 10610; }
+     }
+      signal TC_SW1_2{
+         site 1 { pogo = 10609; }
+         site 2 { pogo = 10609; }
+         site 3 { pogo = 10609; }
+         site 4 { pogo = 10609; }
+         site 5 { pogo = 10609; }
+         site 6 { pogo = 10609; }
+         site 7 { pogo = 10609; }
+         site 8 { pogo = 10609; }
+     }
+        signal TC_SW1_3{
+         site 1 { pogo = 10608; }
+         site 2 { pogo = 10608; }
+         site 3 { pogo = 10608; }
+         site 4 { pogo = 10608; }
+         site 5 { pogo = 10608; }
+         site 6 { pogo = 10608; }
+         site 7 { pogo = 10608; }
+         site 8 { pogo = 10608; }
+     }
+
+      signal TC_SW2_2{
+         site 1 { pogo = 10606; }
+         site 2 { pogo = 10606; }
+         site 3 { pogo = 10606; }
+         site 4 { pogo = 10606; }
+         site 5 { pogo = 10606; }
+         site 6 { pogo = 10606; }
+         site 7 { pogo = 10606; }
+         site 8 { pogo = 10606; }
+     }
+      signal TC_SW2_1{
+         site 1 { pogo = 10605; }
+         site 2 { pogo = 10605; }
+         site 3 { pogo = 10605; }
+         site 4 { pogo = 10605; }
+         site 5 { pogo = 10605; }
+         site 6 { pogo = 10605; }
+         site 7 { pogo = 10605; }
+         site 8 { pogo = 10605; }
+     }
+      signal TC_SW3_2{
+         site 1 { pogo = 10601; }
+         site 2 { pogo = 10601; }
+         site 3 { pogo = 10601; }
+         site 4 { pogo = 10601; }
+         site 5 { pogo = 10601; }
+         site 6 { pogo = 10601; }
+         site 7 { pogo = 10601; }
+         site 8 { pogo = 10601; }
+     }
+      signal TC_SW3_1{
+         site 1 { pogo = 10602; }
+         site 2 { pogo = 10602; }
+         site 3 { pogo = 10602; }
+         site 4 { pogo = 10602; }
+         site 5 { pogo = 10602; }
+         site 6 { pogo = 10602; }
+         site 7 { pogo = 10602; }
+         site 8 { pogo = 10602; }
+     }
+      signal TC_SW4_2{
+         site 1 { pogo = 10603; }
+         site 2 { pogo = 10603; }
+         site 3 { pogo = 10603; }
+         site 4 { pogo = 10603; }
+         site 5 { pogo = 10603; }
+         site 6 { pogo = 10603; }
+         site 7 { pogo = 10603; }
+         site 8 { pogo = 10603; }
+     }
+      signal TC_SW4_1{
+          site 1 { pogo = 10604; }
+         site 2 { pogo = 10604; }
+         site 3 { pogo = 10604; }
+         site 4 { pogo = 10604; }
+         site 5 { pogo = 10604; }
+         site 6 { pogo = 10604; }
+         site 7 { pogo = 10604; }
+         site 8 { pogo = 10604; }
+     }
+
+
+     signal ATEST {
+         site 1 { pogo = 10106; }
+         site 2 { pogo = 10114; }
+         site 3 { pogo = 10506; }
+         site 4 { pogo = 10514; }
+         site 5 { pogo = 10102; }
+         site 6 { pogo = 10110; }
+         site 7 { pogo = 10502; }
+         site 8 { pogo = 10510; }
+     }
+
+     signal VDDIO {
+         site 1 { pogo = 22514; }
+         site 2 { pogo = 22510; }
+         site 3 { pogo = 22506; }
+         site 4 { pogo = 22502; }
+         site 5 { pogo = 22516; }
+         site 6 { pogo = 22512; }
+         site 7 { pogo = 22508; }
+         site 8 { pogo = 22504; }
+     }
+
+     signal VDD1P8 {
+         site 1 { pogo = 22515; }
+         site 2 { pogo = 22511; }
+         site 3 { pogo = 22507; }
+         site 4 { pogo = 22503; }
+         site 5 { pogo = 22513; }
+         site 6 { pogo = 22509; }
+         site 7 { pogo = 22505; }
+         site 8 { pogo = 22501; }
+     }
+
+     signal RF_IN1 {
+         site 1 { pogo = 90101; }
+         site 2 { pogo = 90102; }
+         site 3 { pogo = 90109; }
+         site 4 { pogo = 90110; }
+         site 5 { pogo = 90201; }
+         site 6 { pogo = 90202; }
+         site 7 { pogo = 90209; }
+         site 8 { pogo = 90210; }
+     }
+
+     signal RF_IN2 {
+        site 1 { pogo = 90103; }
+        site 2 { pogo = 90104; }
+        site 3 { pogo = 90111; }
+        site 4 { pogo = 90112; }
+        site 5 { pogo = 90203; }
+        site 6 { pogo = 90204; }
+        site 7 { pogo = 90211; }
+        site 8 { pogo = 90212; }
+
+
+    }
+    signal RF_IN3 {
+         site 1 { pogo = 90115; }
+         site 2 { pogo = 90116; }
+         site 3 { pogo = 90107; }
+         site 4 { pogo = 90108; }
+         site 5 { pogo = 90215; }
+         site 6 { pogo = 90216; }
+         site 7 { pogo = 90207; }
+         site 8 { pogo = 90208; }
+    }
+
+
+
+     signal RF_OUT {
+         site 1 { pogo = 90105; }
+         site 2 { pogo = 90106; }
+         site 3 { pogo = 90113; }
+         site 4 { pogo = 90114; }
+         site 5 { pogo = 90205; }
+         site 6 { pogo = 90206; }
+         site 7 { pogo = 90213; }
+         site 8 { pogo = 90214; }
+     }
+
+
+
+}
